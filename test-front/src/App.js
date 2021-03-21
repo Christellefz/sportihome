@@ -2,47 +2,14 @@ import React, {Component} from "react";
 import {MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from 'leaflet';
 import Form from './components/Form';
-//import * as fakeData from './components/Data'
+import  fakeData from './components/Data';
+import Filter from './components/Filter';
 import CYCLING from './assets/CYCLING.svg';
 import rouge from './assets/rouge.svg';
 import KITEBOARDING from './assets/KITEBOARDING.svg';
 import YOGA from './assets/YOGA.svg';
 import "./App.css";
 
-
-const fakeData= [
-  {
-      id:1,
-      Spot: "Mon super spot1",
-      coordonnées:[
-      43.604510,
-      3.902116
-      ],
-      Sport: "Velo",
-      Favori: true
-  },
-  {
-      id:3,
-      Spot: "Mon super spot2",
-      coordonnées:[
-      43.522663,
-      3.922588
-      ],
-      Sport: "Kite",
-      Favori: false
-  },
-  {
-      id:1,
-      Spot: "Mon super spot3",
-      coordonnées:[
-      43.556386,
-      3.927683
-      ],
-      Sport: "Yoga",
-      Favori: true
-  }
-  ]
- 
 
 class App extends Component  {
   state = {
@@ -70,7 +37,6 @@ class App extends Component  {
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76]
   });
-
   YogaIcon = L.icon({
     iconUrl: YOGA,
     iconSize:     [38, 95], // size of the icon
@@ -84,7 +50,7 @@ class App extends Component  {
       if(position){
       this.setState({ lat :  position.coords.latitude});
       this.setState({ lng : position.coords.longitude });
-      //ICI le state devrait être modifié
+      //ICI le state est modifié Mais la carte ne se recentre pas probablement une question de syncronicité
     } else if (error.code === error.PERMISSION_DENIED) {
       // check if the user denied geolocation, or if there was any other problem
         alert('Geolocation has been disabled on this page, please review your browser\'s parameters');
@@ -93,7 +59,6 @@ class App extends Component  {
         }
   }
  ) }
-
 
   //When comp is mounted change the state to user's position
 componentDidMount () {
@@ -134,6 +99,7 @@ render(){
        ))}
       </MapContainer>
       <Form/>
+      <Filter/>
       </div>
       </div>
     )

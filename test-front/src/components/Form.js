@@ -46,6 +46,7 @@ const handleSubmit= (event) =>{
 
         return(
             <div className="form">
+                    <p>AJOUTE UN SPOT</p>
                     <input id="idkey" type="text" placeholder="Id"   onChange={handleChangeKey}></input>
                     <input id="spot" type="text" placeholder="Spot"  onChange={handleChangeSpot}></input>
                     <input id="lat" type="text"  placeholder="Latitude" onChange={handleChangeLat}></input>
