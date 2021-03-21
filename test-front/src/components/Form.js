@@ -1,4 +1,5 @@
 import React, {useState}from 'react';
+import axios from 'axios';
 import './Form.css';
 
 const Form=(props)=>{
@@ -10,30 +11,48 @@ const Form=(props)=>{
     const [favori, setFavori]=useState(false);
        
 
-const handleChange=(event) => {
+const handleChangeKey=(event) => {
         setidKey(event.target.value);
+} ;
+const handleChangeSpot=(event) => {
         setSpot(event.target.value);
+};
+const handleChangeLat=(event) => {
         setLat(event.target.value);
+};
+const handleChangeLng=(event) => {
         setLng(event.target.value);
+};
+const handleChangeSport=(event) => { 
         setSport(event.target.value);
+};
+const handleSubmit= (event) =>{
+    const sportSpot={
+        Id: idKey,
+        Spot :spot,
+        Latitude: lat,
+        Longitude: lng,
+        Sport: sport,
+        Favori: favori,
     }
-    const handleSubmit= (event) =>{
-        console.log("poulet")
+        axios.post('Localhost:3000/api/spots/getAllMarkersInBounds/', {sportSpot})
+            .then(response=>{
+                console.log('superpoulet')
+                console.log(response);
+                console.log(response.data);
+            })
     }
 
         return(
             <div className="form">
-         {/*//action="http://foo.com" method="get"*/}
-         <input id="idkey" type="text"  value={idKey} onChange={handleChange}></input>
-         <input id="spot" type="text"  value={spot} onChange={handleChange}></input>
-         <input id="lat" type="text"  value={lat} onChange={handleChange}></input>
-         <input id="lng" type="text"  value={lng} onChange={handleChange}></input>
-         <input id="sport" type="text"  value={sport} onChange={handleChange}></input>
-         <input id="favori" type="checkbox"  onChange={()=>setFavori(!favori)}></input>
-
-        
-        <input name="to" value="Mom"></input>
-        <button onSubmit={handleSubmit}>Send Form</button>     
+                    <input id="idkey" type="text" placeholder="Id"   onChange={handleChangeKey}></input>
+                    <input id="spot" type="text" placeholder="Spot"  onChange={handleChangeSpot}></input>
+                    <input id="lat" type="text"  placeholder="Latitude" onChange={handleChangeLat}></input>
+                    <input id="lng" type="text"placeholder="Longitude"   onChange={handleChangeLng}></input>
+                    <input id="sport" type="text" placeholder="Sport" onChange={handleChangeSport}></input>
+                    <p>Favori?</p>
+                    <input id="favori" type="checkbox" name='favori?' onChange={()=>setFavori(!favori)}></input>
+                <button onSubmit={() =>handleSubmit}>Send Form</button>     
         </div>
       )
 }

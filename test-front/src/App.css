@@ -1,4 +1,9 @@
 .map {
-    width: 100%;
+  display: flex;
+    width: 100vw;
     height: 100vh;
+  }
+
+  .structure {
+    display:flex;
   }
