@@ -4,6 +4,7 @@ import L from 'leaflet';
 import Form from './components/Form';
 import  fakeData from './components/Data';
 import Filter from './components/Filter';
+import Appel from './components/Appel';
 import CYCLING from './assets/CYCLING.svg';
 import rouge from './assets/rouge.svg';
 import KITEBOARDING from './assets/KITEBOARDING.svg';
@@ -68,7 +69,7 @@ componentDidMount () {
 render(){
   
     const positionGreenIcon = [this.state.lat, this.state.lng];
-    console.log(this.state.lat, this.state.lng)
+    console.log(this.state.lat, this.state.lng, 'render')
     console.log(fakeData)
 
   return (
@@ -100,6 +101,7 @@ render(){
       </MapContainer>
       <Form/>
       <Filter/>
+      
       </div>
       </div>
     )

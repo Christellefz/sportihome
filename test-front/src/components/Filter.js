@@ -10,10 +10,10 @@ const Filter = ()=>{
     useEffect(()=>{
         
         console.log(filteredActivity)
-     if (velo === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport=="velo"))};
+     if (velo === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport==="velo"))};
      if (kite === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport.includes("kite")))};
      if (yoga === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport.includes("yoga")))};
-    },[velo, kite, yoga] )
+    },[filteredActivity] )
     //Je n'arrive pas à push les valeurs dans le nouveau tableau
  
     return(
