@@ -5,16 +5,14 @@ const Filter = ()=>{
     const [velo, setVelo]= useState(false);
     const [kite, setKite]= useState(false);
     const  [yoga,setYoga] =useState(false);
-    const filteredActivity=[]
+    const selectedHobbiesVelo= fakeData.filter(item =>item.Sport.includes('Velo'))
 
     useEffect(()=>{
         
-        console.log(filteredActivity)
-     if (velo === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport==="velo"))};
-     if (kite === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport.includes("kite")))};
-     if (yoga === true) {filteredActivity.push(fakeData.filter(objet =>objet.Sport.includes("yoga")))};
-    },[filteredActivity] )
-    //Je n'arrive pas à push les valeurs dans le nouveau tableau
+        console.log(`${velo} and `, selectedHobbiesVelo,  fakeData )
+
+    },[velo] )
+
  
     return(
        
@@ -25,9 +23,13 @@ const Filter = ()=>{
             <label for="Kite" name="Kite">
             <input type="checkbox" onChange={()=>{setKite(!kite)}}></input>
             </label>Yoga?
-            <label for="Yoga" name="Yoga">
+            <label for="yoga" name="yoga">
             <input type="checkbox" onChange={() =>{setYoga(!yoga)}}></input>
             </label>
+            {velo
+            ?( selectedHobbiesVelo.map(selectedHobbiesVelo =><li key={selectedHobbiesVelo.id}>
+                {selectedHobbiesVelo.Spot}</li>))
+            : null}
         </div>
     )
 };

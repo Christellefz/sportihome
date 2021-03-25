@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import {MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from 'leaflet';
+
 import Form from './components/Form';
 import  fakeData from './components/Data';
 import Filter from './components/Filter';
 import Appel from './components/Appel';
+
 import CYCLING from './assets/CYCLING.svg';
 import rouge from './assets/rouge.svg';
 import KITEBOARDING from './assets/KITEBOARDING.svg';
