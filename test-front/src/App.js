@@ -6,6 +6,7 @@ import Form from './components/Form';
 import  fakeData from './components/Data';
 import Filter from './components/Filter';
 import Appel from './components/Appel';
+import FormBis from './components/FormBis';
 
 import CYCLING from './assets/CYCLING.svg';
 import rouge from './assets/rouge.svg';
@@ -101,7 +102,7 @@ render(){
           </Marker>
        ))}
       </MapContainer>
-      <Form/>
+      <FormBis/>
       <Filter/>
       
       </div>

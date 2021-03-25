@@ -1,0 +1,36 @@
+.form {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .form h1 {
+    text-align: center;
+  }
+  
+  .form .form-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+  }
+  
+  .form .form-data label {
+    display: inline-block;
+    width: 110px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  
+  .form .form-data input:not([type="submit"]), textarea {
+    flex-grow: 1;
+    border-radius: 5px;
+  }
+  
+  fieldset {
+    border-radius: 5px;
+  }
+  
+  span {
+    color: red;
+  }
